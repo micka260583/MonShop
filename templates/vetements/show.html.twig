@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title vetement.titre %}
+
+{% block body %}
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-4">
+				<h1>{{ vetement.titre }}</h1>
+                <p>{{ vetement.sex }}</p>
+                <p>Taille {{ vetement.taille }}</p>
+                <p class="text-primary ">{{ vetement.prix | number_format('0', '', ' ') }} €</p>
+			</div>
+		</div>
+
+        <nav class="nav nav-tabs mb-4" id="tab"></nav>
+
+
+		<h2>Description</h2>
+        <p>{{ vetement.description | nl2br }}</p>
+
+        
+
+	</div>
+{% endblock %}

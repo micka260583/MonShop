@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title 'Mon shop' %}
+
+{% block body %}
+	<div class="text-bg-info text-center">
+		<div class="container">
+			<h1>Mon shop</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec odio quam. Nullam metus nisl, tincidunt sed ante non, ullamcorper maximus dui. Nullam quam augue, venenatis vitae sodales eget, vulputate ac erat. Nulla mattis leo et eros sagittis interdum. Suspendisse lobortis lacus non nisl egestas, vitae aliquet massa sodales. Morbi sit amet tortor quis magna porta porta. Praesent pulvinar nibh id ipsum blandit, vel facilisis ipsum facilisis. Nulla congue quam eget nulla egestas efficitur. In pulvinar elit nisl, at laoreet ex faucibus in. Morbi blandit posuere dapibus.</p>
+		</div>
+	</div>
+	
+	<div class="container">
+		<h2 class="text-center">Les derniers vêtements</h2>
+		<div class="row flex">
+			{% for vetement in vetements %}
+				<div class="col-3">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">
+								<a href="{{ path('vetements.show', {id: vetement.id, slug: vetement.slug}) }}">{{ vetement.titre }}</a>
+							</h5>
+							<p class="card-text">{{ vetement.description }}</p>
+							<p class="card-text">Taille {{ vetement.taille }}</p>
+							<p class="card-text">{{ vetement.prix | number_format('0', '', ' ') }} €</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

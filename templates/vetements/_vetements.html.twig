@@ -1,0 +1,15 @@
+<div class="card mb-4">
+	<div class="card-body">
+		<h5 class="card-title">
+			<a href="{{ path('vetements.show', {slug: vetement.slug, id: vetement.id })}}">
+				{{ vetement.titre }}
+			</a>
+		</h5>
+		<p class="card-text">{{ vetement.description | nl2br }}</p>
+		<p class="card-text">Taille
+			{{ vetement.taille }}</p>
+		<p class="card-text text-primary">{{ vetement.prix | number_format('0', '', ' ') }}
+			€</p>
+
+	</div>
+</div>

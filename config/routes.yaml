@@ -1,0 +1,12 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+# home:
+#     path: /
+#     controller: App\Controller\HomeController::index
+
+# admin.vetements.delete:
+#     path: /admin/vetements/{id}
+#     controller: 'App\Controller\AdminVetementsController::delete'
+#     methods: [DELETE]
