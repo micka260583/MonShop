@@ -3,22 +3,33 @@
 {% block title 'Tout le vestiaire' %}
 
 {% block body %}
-	<div class="container mt-4">
-		<h1>Voir tout le vestiaire</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 mt-4">
+				{% include 'vetements/_filter.html.twig' with {form: form} only %}
+			</div>
 
-		<div class="row flex">
-			{% for vetement in vetements %}
-				<div class="col-md-4">
-					{% include 'vetements/_vetements.html.twig' %}
+			<div class="col-md-9">
+				<div class="container mt-4">
+					<h1>Voir tout le vestiaire</h1>
+
+					<div class="row flex">
+						{% for vetement in vetements %}
+							<div class="col-md-4">
+								{% include 'vetements/_vetements.html.twig' %}
+							</div>
+						{% endfor %}
+
+					</div>
+
+					<div class="pagination">
+						{{ knp_pagination_render(vetements) }}
+					</div>
+
 				</div>
-			{% endfor %}
-
+			</div>
 		</div>
-
-		<div class="pagination">
-			{{ knp_pagination_render(vetements) }}
-		</div>
-
 	</div>
+
 
 {% endblock %}

@@ -1,0 +1,63 @@
+{{ form_start(form, {attr: {class: 'filter'}}) }}
+
+    <div class="mb-3">
+        {{ form_row(form.q) }}
+    </div>
+
+    <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catégories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+            {% for choice in form.categorie %}
+                <div class="form-check">
+                    {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="sexDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sex
+        </button>
+        <div class="dropdown-menu" aria-labelledby="sexDropdown">
+            {% for choice in form.sex %}
+                <div class="form-check">
+                    {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="tailleDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Taille
+        </button>
+        <div class="dropdown-menu" aria-labelledby="tailleDropdown">
+            {% for choice in form.taille %}
+                <div class="form-check">
+                    {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <h4>Prix</h4>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.prixMin) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.prixMax) }}
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+
+{{ form_end(form) }}

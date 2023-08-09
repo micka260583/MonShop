@@ -6,8 +6,12 @@
 			</a>
 		</h5>
 		<p class="card-text">{{ vetement.description | nl2br }}</p>
-		<p class="card-text">Taille
-			{{ vetement.taille }}</p>
+		<div class="row">
+			<p class="card-text col-md-6">{{ vetement.sex }}</p>
+			<p class="card-text col-md-6">{{ vetement.categorie }}</p>
+		</div>
+		<p class="card-text">{{ vetement.taille }}</p>
+
 		<p class="card-text text-primary">{{ vetement.prix | number_format('0', '', ' ') }}
 			€</p>
 

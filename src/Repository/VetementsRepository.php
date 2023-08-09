@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Vetements;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
@@ -39,11 +40,49 @@ class VetementsRepository extends ServiceEntityRepository
      * @return Query
      * retourne tous les vetements
      */
-    public function findAllQuery(): Query
+    public function findAllQuery(SearchData $search): array
     {
-        return $this->createQueryBuilder('v')
-            ->getQuery()
-        ;
+        $query = $this
+            ->createQueryBuilder('v');
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('v.titre LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->categorie)) {
+            $query = $query
+                ->andWhere($query->expr()->in('v.categorie', ':categorie'))
+                ->setParameter('categorie', $search->categorie);
+        }
+
+        if (!empty($search->sex)) {
+            $query = $query
+                ->andWhere($query->expr()->in('v.sex', ':sex'))
+                ->setParameter('sex', $search->sex);
+        }
+
+        if (!empty($search->taille)) {
+            $query = $query
+                ->andWhere($query->expr()->in('v.taille', ':taille'))
+                ->setParameter('taille', $search->taille);
+        }
+
+        if (!empty($search->prixMin)) {
+            $query = $query
+                ->andWhere('v.prix >= :prixMin')
+                ->setParameter('prixMin', $search->prixMin);
+        }
+
+        if (!empty($search->prixMax)) {
+            $query = $query
+                ->andWhere('v.prix <= :prixMax')
+                ->setParameter('prixMax', $search->prixMax);
+        }
+
+        return $query->getQuery()->getResult();
+        
     }
 
 //    /**

@@ -18,18 +18,18 @@ class VetementsType extends AbstractType
         $ageChoices = [];
             for ($i = 0; $i <= 14; $i += 2) {
                 $ageLabel = "De $i à " . ($i + 2) . " ans";
-                $ageValue = 'age' . ($i / 2 + 1);
+                $ageValue = "De $i à " . ($i + 2) . " ans";
                 $ageChoices[$ageLabel] = $ageValue;
             }
             // Créez un tableau pour stocker les choix de taille
-            $sizeChoices = [
-                'XS' => 'XS',
-                'S' => 'S',
-                'M' => 'M',
-                'L' => 'L',
-                'XL' => 'XL',
-                'XXL' => 'XXL',
-            ];
+        $sizeChoices = [
+            'XS' => 'XS',
+            'S' => 'S',
+            'M' => 'M',
+            'L' => 'L',
+            'XL' => 'XL',
+            'XXL' => 'XXL',
+        ];
             // Fusionnez les choix d'âge et de taille en un seul tableau
             $choices = array_merge($ageChoices, $sizeChoices);
 

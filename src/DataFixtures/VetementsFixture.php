@@ -16,7 +16,7 @@ class VetementsFixture extends Fixture
         $ageChoices = [];
         for ($i = 0; $i <= 14; $i += 2) {
             $ageLabel = "De $i à " . ($i + 2) . " ans";
-            $ageValue = 'age' . ($i / 2 + 1);
+            $ageValue = "De $i à " . ($i + 2) . " ans";
             $ageChoices[$ageLabel] = $ageValue;
         }
 
