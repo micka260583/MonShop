@@ -1,5 +1,14 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.1"
+    "@babel/core": "^7.22.10",
+    "bootstrap": "^5.3.1",
+    "nouislider": "^15.7.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.10",
+    "@symfony/webpack-encore": "^4.4.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-notifier": "^1.15.0"
   }
 }

@@ -1,6 +1,11 @@
+import noUiSlider from 'nouislider';
+import './styles/app.css';
+
+console.log('hello you');
+
+
 
 const slider = document.getElementById('price-slider');
-
 
 if (slider) {
     noUiSlider.create(slider, {
@@ -13,4 +18,3 @@ if (slider) {
 });
 }
 
-console.log('hello man');
